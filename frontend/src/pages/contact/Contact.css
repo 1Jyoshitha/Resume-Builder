@@ -1,0 +1,91 @@
+.contact-box{
+    display: flex;
+   flex-direction: row;
+   background: url("1685588057_en-idei-club-p-blue-green-background-design-dizain-53.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   min-height: 100vh;
+}
+.contact-img img{
+    margin: 15px;
+    padding: 25px;
+    height: 400px;
+    width: 650px;
+    margin-top: 80px;
+    border-radius: 40%;
+}
+.contact-info{
+    margin-top: 20px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+}
+.contact-info h1{
+    font-size: 50px;
+    color:white;
+    background: black;
+    width: 450px;
+    text-align: center;
+    margin-top: 60px
+}
+.contact-info h6{
+    font-size: 12px;
+}
+.contact-info p{
+    font-size: 14px;
+    background: black;
+    color: white;
+    width:450px;
+    padding: 3px;
+}
+
+@media (max-width:600px){
+    .contact-box{
+       display: flex;
+       flex-direction: column;
+       background: url("1685588057_en-idei-club-p-blue-green-background-design-dizain-53.jpg");
+       background-size: cover;
+       background-repeat: no-repeat;
+       background-position: center;
+       min-height: 100vh;
+       align-items: center;
+    }
+    .contact-img img{
+        display: none;
+        margin: 15px;
+        margin-top: 80px;
+        padding: 25px;
+        height: 100px;
+        width: 300px;
+       border-radius: 30%;
+    }
+    .contact-info{
+        margin-top: 80px;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    .contact-info h6{
+        font-size: 10px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: white;
+        padding: 10px;
+        
+    }
+    .contact-info h1{
+        font-size: 30px;
+        color:white;
+        background: black;
+        width: 300px;
+        text-align: center;
+    }
+    .contact-info p{
+        font-size: 10px;
+        width: 300px;
+    }
+}

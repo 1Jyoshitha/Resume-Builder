@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
+.footer{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(yellow,rgb(2, 182, 253));
+    
+}
+.footer h6{
+    font-family: "Patrick Hand SC", cursive;
+    font-size: 30px;
+}
+.footer-links a{
+     text-decoration: none;
+     margin: 10px;
+     padding: 10px;
+}
+.footer-links a:hover{
+    border-bottom: 1px solid blue;
+}
+@media (max-width:600px){
+    .footer{
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(yellow,rgb(2, 182, 253));
+        
+    }
+    .footer h6{
+        font-family: "Patrick Hand SC", cursive;
+        font-size: 20px;
+    }
+    .footer-links a{
+         text-decoration: none;
+         margin: 10px;
+         padding: 10px;
+         font-size: 10px;
+    }
+    .footer-links a:hover{
+        border-bottom: 1px solid blue;
+    }
+}

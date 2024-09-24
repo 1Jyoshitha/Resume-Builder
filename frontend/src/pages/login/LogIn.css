@@ -1,0 +1,129 @@
+/* Register */
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
+
+.login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+     background: url("1685588057_en-idei-club-p-blue-green-background-design-dizain-53.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   min-height: 100vh;
+}
+
+.login form{
+    width: 500px;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    padding: 20px;
+    border-radius: 40px;
+    border: 5px solid yellow;
+}
+
+.login form input{
+    border-bottom: 2px solid rgb(0, 183, 255);
+    border-top: white;
+    outline: none;
+    border-radius: 0;
+    margin: 5px;
+    background: transparent;
+}
+.login form button{
+    background: lawngreen;
+    color: white;
+     width: 460px;
+     border: none;
+     outline: none;
+}
+.login a{
+    text-decoration: none;
+    margin-top: 10px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    margin-left: 100px;
+}
+.login-text{
+     margin-right: 20px;
+     background: white;
+    color: rgb(0, 183, 255);
+    font-family: "Patrick Hand SC", cursive;
+    padding: 10px;
+    transition: 1s ease-in-out;
+    border-radius: 30px;
+
+}
+
+.login-text:hover{
+    transform: rotate(360deg);
+}
+@media (max-width:600px){
+    
+.login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+     background: url("1685588057_en-idei-club-p-blue-green-background-design-dizain-53.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   min-height: 100vh;
+}
+
+.login form{
+    width: 300px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    padding: 20px;
+    border-radius: 40px;
+    border: 5px solid yellow;
+}
+
+.login form input{
+    border-bottom: 2px solid rgb(0, 183, 255);
+    border-top: white;
+    outline: none;
+    border-radius: 0;
+    margin: 5px;
+    background: transparent;
+}
+.login form button{
+    background: lawngreen;
+    color: white;
+     width: 250px;
+     border: none;
+     outline: none;
+}
+.login a{
+    text-decoration: none;
+    margin-top: 10px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-left:10px;
+}
+.login-text{
+     margin-right: 20px;
+     background: white;
+    color: rgb(0, 183, 255);
+    font-family: "Patrick Hand SC",sans-serif;
+    padding: 10px;
+    transition: 1s ease-in-out;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+.login-text h1{
+    font-size: 25px;
+}
+
+.login-text:hover{
+    transform: rotate(360deg);
+}
+} 

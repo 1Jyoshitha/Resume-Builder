@@ -1,0 +1,83 @@
+.policy-box{
+    display: flex;
+   flex-direction: row;
+   background: url("1685588057_en-idei-club-p-blue-green-background-design-dizain-53.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   min-height: 100vh;
+}
+.policy-img img{
+    margin: 15px;
+    padding: 25px;
+    height: 400px;
+    width: 500px;
+    margin-top: 80px;
+    border-radius: 40%;
+}
+.policy-info{
+    margin-top: 20px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.policy-info h1{
+    font-size: 50px;
+    color:white;
+    background: black;
+    width: 630px;
+    text-align: center;
+}
+
+.policy-info p{
+    font-size: 13px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: white;
+    padding: 10px;
+}
+@media (max-width:600px){
+    .policy-box{
+       display: flex;
+       flex-direction: column;
+       background: url("1685588057_en-idei-club-p-blue-green-background-design-dizain-53.jpg");
+       background-size: cover;
+       background-repeat: no-repeat;
+       background-position: center;
+       min-height: 100vh;
+       align-items: center;
+    }
+    .policy-img img{
+        display: none;
+        margin: 15px;
+        margin-top: 80px;
+        padding: 25px;
+        height: 100px;
+        width: 300px;
+       border-radius: 30%;
+    }
+    .policy-info{
+        margin-top: 80px;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    .policy-info h6{
+        font-size: 13px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: white;
+        padding: 10px;
+        
+    }
+    .policy-info h1{
+        font-size: 30px;
+        color:white;
+        background: black;
+        width: 300px;
+        text-align: center;
+    }
+}

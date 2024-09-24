@@ -1,0 +1,29 @@
+/* Layout.css */
+
+.layout-container {
+    position: relative; /* Ensure relative positioning for absolute children */
+    padding:0;
+    margin: 0;
+  }
+  
+  .header-nav {
+    position: absolute; /* Position header absolutely */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100; /* Ensure header appears above other content */
+  }
+  
+  .footer-nav {
+    position: absolute; /* Position footer absolutely */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100; /* Ensure footer appears above other content */
+  }
+  
+  .main-content {
+    position: relative; /* Ensure content inside Layout is positioned relative */
+    z-index: 10; /* Ensure content appears above the background image */
+  }
+  

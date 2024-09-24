@@ -1,0 +1,471 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
+
+.homepage {
+    background-image: url('1685588057_en-idei-club-p-blue-green-background-design-dizain-53.jpg');
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    position: relative;
+    padding-top: 50px;
+
+}
+
+.homepage-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100vh;
+}
+
+.homepage-title {
+    border: 1px solid white;
+    border-radius: 40px;
+    height: 400px;
+    text-align: center;
+    align-content: center;
+    margin-top: 190px;
+    padding: 10px;
+    background: white;
+    width: 400px;
+    margin-right: 20px;
+    transition: 0.8s ease-in-out;
+
+}
+
+.homepage-title h1 {
+    font-family: "Patrick Hand SC", cursive;
+    font-weight: 900;
+    font-style: normal;
+    color: rgb(0, 183, 255);
+    font-size: 65px;
+
+}
+
+.homepage-title:hover {
+    transform: scale(1.1);
+}
+
+
+.homepage-title h3 {
+    font-family: "Patrick Hand SC", cursive;
+    font-size: 20px;
+
+}
+
+.homepage-image img {
+    width: 200px;
+    height: 200px;
+    mix-blend-mode: multiply;
+    transition: transform 0.8s ease;
+    border-radius: 50%;
+}
+
+.homepage-image img:hover {
+    transform: rotate(360deg);
+}
+
+.homepage-about {
+    border: 1px solid white;
+    border-radius: 40px;
+    height: 300px;
+    text-align: center;
+    align-content: center;
+    margin-top: 480px;
+    padding: 10px;
+    background: white;
+    width: 600px;
+    margin-left: 20px;
+    transition: 0.8s ease-in-out;
+}
+
+.homepage-about:hover {
+    transform: scale(1.1);
+}
+
+.homepage-about h1 {
+    font-family: "Patrick Hand SC", cursive;
+    font-size: 50px;
+    color: rgb(0, 183, 255);
+    font-weight: 700;
+}
+
+.homepage-about p {
+    font-family: "Patrick Hand SC", serif;
+    margin-bottom: 40px;
+}
+
+.homepage-about a {
+    text-decoration: none;
+    background: transparent;
+    background: rgb(0, 183, 255);
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    font-family: "Patrick Hand SC", cursive;
+    font-size: 30px;
+    transition: 0.5s ease-in-out;
+
+}
+
+.homepage-about a:hover {
+    letter-spacing: 3px;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateY(-5px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80%,
+    100% {
+        transform: translateY(5px);
+    }
+}
+
+.homepage-faq {
+    border: 1px solid white;
+    border-radius: 40px;
+    height: auto;
+    text-align: center;
+    align-content: center;
+    margin-top: 240px;
+    padding: 15px;
+    background: white;
+    width: 800px;
+    margin-left: 50px;
+}
+
+.homepage-faq h1 {
+    font-family: "Patrick Hand SC", cursive;
+    font-size: 50px;
+    color: rgb(0, 183, 255);
+    font-weight: 700;
+}
+
+.homepage-faq details {
+    font-family: "Patrick Hand SC", cursive;
+    font-size: 20px;
+    border-top: 0.5px solid black;
+    padding: 10px;
+    transition: 1s ease-in-out;
+}
+
+.homepage-faq details:hover {
+    letter-spacing: 1px;
+}
+
+.homepage-faq p {
+    font-size: 15px;
+    font-family: "Patrick", serif;
+}
+
+.homepage-steps {
+    border: 1px solid white;
+    border-radius: 40px;
+    height: auto;
+    text-align: center;
+    align-content: center;
+    margin-top: 30px;
+    padding: 10px;
+    background: white;
+    width: 800px;
+    transition: 0.8s ease-in-out;
+    margin-left: 420px;
+    margin-bottom: 50px;
+}
+
+.homepage-steps h1 {
+    font-family: "Patrick Hand SC", cursive;
+    font-size: 50px;
+    color: rgb(0, 183, 255);
+    font-weight: 700;
+    padding: 10px;
+}
+
+.homepage-steps h3 {
+    font-family: "Patrick Hand SC", cursive;
+    transition: 0.5s ease-in-out;
+
+}
+
+.homepage-steps h3:hover {
+    transform: scale(1.1);
+
+}
+
+.homepage-steps h3 span {
+    border-bottom: 1px solid black;
+    color: black;
+}
+
+.homepage-steps h3 span:hover {
+    border-bottom: 2px solid rgb(0, 183, 255);
+}
+
+.homepage-company {
+    border: 1px solid white;
+    border-radius: 40px;
+    height: 300px;
+    text-align: center;
+    align-content: center;
+    padding: 10px;
+    background: white;
+    width: 800px;
+    transition: 0.8s ease-in-out;
+    margin-bottom: 50px;
+    margin-left: 40px;
+}
+
+.homepage-company h1 {
+    font-family: "Patrick Hand SC", cursive;
+    color: rgb(0, 183, 255);
+    font-weight: 900;
+    font-size: 50px;
+}
+
+.homepage-company h2 {
+    font-family: "Patrick", sans-serif;
+    font-size: 70px;
+}
+
+.homepage-numbers {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.homepage-numbers h4 {
+    font-family: "Patrick ", cursive;
+    color: rgb(0, 183, 255);
+    letter-spacing: 2px;
+    font-size: 30px;
+    margin-top: 50px;
+    border-top: 1px solid black;
+}
+
+.homepage-numbers span {
+    margin-left: 20px;
+    color: rgb(17, 0, 255);
+    font-size: 25px;
+    height: fit-content;
+    font-weight: 700;
+
+}
+
+@media (max-width:600px) {
+    .homepage-title {
+        border: 1px solid white;
+        border-radius: 40px;
+        height: 300px;
+        text-align: center;
+        align-content: center;
+        margin-top: 190px;
+        padding: 10px;
+        background: white;
+        width: 600px;
+        margin-left: 20px;
+        transition: 0.8s ease-in-out;
+
+    
+    }
+    
+    .homepage-title h1 {
+        font-family: "Patrick Hand SC", cursive;
+        font-weight: 900;
+        font-style: normal;
+        color: rgb(0, 183, 255);
+        font-size: 35px;
+    
+    }
+    
+    .homepage-title:hover {
+        transform: scale(1.1);
+    }
+    
+    
+    .homepage-title h3 {
+        font-family: "Patrick Hand SC", cursive;
+        font-size: 18px;
+    
+    }
+    
+    .homepage-image img {
+        width: 100px;
+        height: 100px;
+        mix-blend-mode: multiply;
+        transition: transform 0.8s ease;
+        border-radius: 50%;
+    }
+    
+    .homepage-image img:hover {
+        transform: rotate(360deg);
+    }
+    .homepage-about {
+        border: 1px solid white;
+        border-radius: 40px;
+        height: 300px;
+        text-align: center;
+        align-content: center;
+        margin-top: 350px;
+        padding: 10px;
+        background: white;
+        width: 600px;
+        margin-left: 5px;
+        margin-right: 10px;
+        transition: 0.8s ease-in-out;
+    }
+    
+    .homepage-about:hover {
+        transform: scale(1.1);
+    }
+    
+    .homepage-about h1 {
+        font-family: "Patrick Hand SC", cursive;
+        font-size: 20px;
+        color: rgb(0, 183, 255);
+        font-weight: 700;
+    }
+    
+    .homepage-about p {
+        font-family: "Patrick Hand SC", serif;
+        margin-bottom: 10px;
+    }
+    
+    .homepage-about a {
+        text-decoration: none;
+        background: transparent;
+        background: rgb(0, 183, 255);
+        color: white;
+        padding: 10px;
+        border-radius: 20px;
+        font-family: "Patrick Hand SC", cursive;
+        font-size: 10px;
+        transition: 0.5s ease-in-out;
+    
+    }
+    
+    .homepage-about a:hover {
+        letter-spacing: 3px;
+    }
+    .homepage-faq {
+        border: 1px solid white;
+        border-radius: 40px;
+        height: auto;
+        text-align: center;
+        align-content: center;
+        margin-top: 120px;
+        padding: 15px;
+        background: white;
+        width: 180px;
+        margin-left: 10px;
+    }
+    
+    .homepage-faq h1 {
+        font-family: "Patrick Hand SC", cursive;
+        font-size: 15px;
+        color: rgb(0, 183, 255);
+        font-weight: 700;
+    }
+    
+    .homepage-faq details {
+        font-family: "Patrick Hand SC", cursive;
+        font-size: 10px;
+        border-top: 0.5px solid black;
+        padding: 10px;
+        transition: 1s ease-in-out;
+    }
+    
+    .homepage-faq details:hover {
+        letter-spacing: 1px;
+    }
+    
+    .homepage-faq p {
+        font-size: 10px;
+        font-family: "Patrick", serif;
+    }
+    .homepage-steps {
+        border: 1px solid white;
+        border-radius: 40px;
+        height: auto;
+        text-align: center;
+        align-content: center;
+        margin-top:0;
+        padding: 10px;
+        background: white;
+        width: 160px;
+        transition: 0.8s ease-in-out;
+        margin-left: 180px;
+        margin-bottom: 0;
+    }
+    
+    .homepage-steps h1 {
+        font-family: "Patrick Hand SC", cursive;
+        font-size: 20px;
+        color: rgb(0, 183, 255);
+        font-weight: 700;
+        padding: 10px;
+    }
+    
+    .homepage-steps h3 {
+        font-family: "Patrick Hand SC", cursive;
+        transition: 0.5s ease-in-out;
+       font-size: 10px;
+    }
+    
+    .homepage-steps h3:hover {
+        transform: scale(1.1);
+    
+    }
+    
+    .homepage-steps h3 span {
+        border-bottom: 1px solid black;
+        color: black;
+    }
+    
+    .homepage-steps h3 span:hover {
+        border-bottom: 2px solid rgb(0, 183, 255);
+    }
+    .homepage-company {
+        border: 1px solid white;
+        border-radius: 40px;
+        height: 300px;
+        text-align: center;
+        align-content: center;
+        padding: 10px;
+        background: white;
+        width: 180px;
+        transition: 0.8s ease-in-out;
+        margin-bottom: 50px;
+        margin-left: 10px;
+        margin-top: 0;
+    }
+    
+    .homepage-company h1 {
+        font-family: "Patrick Hand SC", cursive;
+        color: rgb(0, 183, 255);
+        font-weight: 900;
+        font-size: 20px;
+    }
+    
+    .homepage-company h2 {
+        font-family: "Patrick", sans-serif;
+        font-size: 30px;
+    }
+    
+}
