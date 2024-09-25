@@ -19,7 +19,7 @@ const EditProfile = () => {
 
  const getProductDetails=async()=>{
     try{
-    let result = await axios.get(`${process.env.REACT_APP_API}/api/v1/user/get-user/${params.id}`,{name:names,contact:contacts})
+    let result = await axios.get(`https://resume-builder-twca.onrender.com/api/v1/user/get-user/${params.id}`,{name:names,contact:contacts})
     console.log(result)
     setNames(result.data.name);
     setContacts(result.data.contact);
@@ -33,7 +33,7 @@ const EditProfile = () => {
  const updateInfo=async(e)=>{
     e.preventDefault();
       try{
-        let result = await axios.put(`${process.env.REACT_APP_API}/api/v1/update/update-user/${params.id}`,{name:names,contact:contacts})
+        let result = await axios.put(`https://resume-builder-twca.onrender.com/api/v1/update/update-user/${params.id}`,{name:names,contact:contacts})
         console.log(result);
         toast.success("User Updated SuccessFully Please! LogIn Again")
         navigate('/user-profile')
