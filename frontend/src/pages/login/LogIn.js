@@ -13,7 +13,7 @@ const LogIn = () => {
   const handleSubmit= async(e)=>{
     e.preventDefault();
      try{
-      const response = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/login`,{email,password});
+      const response = await axios.post(`https://resume-builder-twca.onrender.com/api/v1/auth/login`,{email,password});
       if(response.data.success){
           console.log(response);
           localStorage.setItem('auth',JSON.stringify(response.data));
