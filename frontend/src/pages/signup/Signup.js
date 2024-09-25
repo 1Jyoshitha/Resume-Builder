@@ -17,7 +17,7 @@ const Signup = () => {
         
       e.preventDefault();
        try{
-        const response = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/register`,{name,email,password,contact});
+        const response = await axios.post(`https://resume-builder-twca.onrender.com/api/v1/auth/register`,{name,email,password,contact});
         if(response.data.success){
             console.log(response);
             localStorage.setItem('auth',JSON.stringify(response.data));
