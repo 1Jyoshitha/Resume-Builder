@@ -11,9 +11,15 @@ import jsPDF from 'jspdf';
 const Craft = () => {
     const [personalDetails, setPersonalDetails] = useState({ name: '', role: '', contactNumber: '', email: '', linkedIn: '' });
     const [summary, setSummary] = useState("");
-    const [skills, setSkills] = useState("");
-    const [experiences, setExperiences] = useState([""]);
-    const [education, setEducation] = useState([""]);
+    const [skills, setSkills] = useState([
+        { header: "Technical Skills", subSkills: ["JavaScript", "ReactJS"] },
+    ]);    
+    const [experiences, setExperiences] = useState([
+        { company: '', role: '', place: '', duration: '', points: ['', '', ''] },
+    ]);
+    const [education, setEducation] = useState([{
+        university: '', place: '', degree: '', startYear: '', endYear: ''
+    }]);
     const [certifications, setCertifications] = useState([""]);
     const [template, setTemplate] = useState(null);
     const [imageURL, setImageURL] = useState(null);
@@ -50,40 +56,86 @@ const Craft = () => {
 
     // Function to add new work experience input
     const handleAddExp = () => {
-        setExperiences([...experiences, '']);
-        if (expRef.current) {
-            const newInput = document.createElement('input');
-            newInput.type = 'text';
-            newInput.placeholder = 'Enter Your Work Experience';
-            newInput.oninput = (e) => { handleExperienceChange(experiences.length, e.target.value); }
-            expRef.current.appendChild(newInput);
-        }
+        setExperiences([...experiences, { company: '', role: '', place: '', duration: '', points: ['', '', ''] }]);
     };
 
-    // Function to handle change in work experience input
-    const handleExperienceChange = (index, value) => {
-        const newExperiences = [...experiences];
-        newExperiences[index] = value;
-        setExperiences(newExperiences);
+    // Function to handle change in any of the experience fields
+    const handleExperienceChange = (index, field, value) => {
+        const updatedExperiences = [...experiences];
+        updatedExperiences[index][field] = value;
+        setExperiences(updatedExperiences);
     };
+
+    // Function to handle point-wise info change
+    const handlePointChange = (index, pointIndex, value) => {
+        const updatedExperiences = [...experiences];
+        updatedExperiences[index].points[pointIndex] = value;
+        setExperiences(updatedExperiences);
+    };
+
+    const handleAddSkill = () => {
+        setSkills([...skills, ""]);
+    };
+    
+    const handleSkillChange = (index, value) => {
+        const updatedSkills = [...skills];
+        updatedSkills[index] = value;
+        setSkills(updatedSkills);
+    };
+
+    const handleRemoveSkill = (index) => {
+        const updatedSkills = skills.filter((_, i) => i !== index);
+        setSkills(updatedSkills);
+    };
+    
+    const handleAddSkillHeader = () => {
+        setSkills([...skills, { header: "", subSkills: [""] }]);
+    };
+    
+    const handleSkillHeaderChange = (index, value) => {
+        const updatedSkills = [...skills];
+        updatedSkills[index].header = value;
+        setSkills(updatedSkills);
+    };
+    
+    const handleAddSubSkill = (index) => {
+        const updatedSkills = [...skills];
+        updatedSkills[index].subSkills.push("");
+        setSkills(updatedSkills);
+    };
+    
+    const handleSubSkillChange = (skillIndex, subIndex, value) => {
+        const updatedSkills = [...skills];
+        updatedSkills[skillIndex].subSkills[subIndex] = value;
+        setSkills(updatedSkills);
+    };
+    
+    const handleRemoveSubSkill = (skillIndex, subIndex) => {
+        const updatedSkills = [...skills];
+        updatedSkills[skillIndex].subSkills = updatedSkills[skillIndex].subSkills.filter(
+            (_, i) => i !== subIndex
+        );
+        setSkills(updatedSkills);
+    };
+    
+    const handleRemoveSkillHeader = (index) => {
+        const updatedSkills = skills.filter((_, i) => i !== index);
+        setSkills(updatedSkills);
+    };
+    
+    
 
     // Function to add new education input
-    const handleAddEducation = () => {
-        setEducation([...education, '']);
-        if (eduRef.current) {
-            const newInput = document.createElement('input');
-            newInput.type = 'text';
-            newInput.placeholder = 'Enter Your Education';
-            newInput.oninput = (e) => { handleEducationChange(education.length, e.target.value); }
-            eduRef.current.appendChild(newInput);
-        }
-    };
 
-    // Function to handle change in education input
-    const handleEducationChange = (index, value) => {
-        const newEducation = [...education];
-        newEducation[index] = value;
-        setEducation(newEducation);
+    const handleEducationChange = (index, field, value) => {
+        const updatedEducation = [...education];
+        updatedEducation[index][field] = value;
+        setEducation(updatedEducation);
+    };
+    
+    // Function to add a new education entry
+    const handleAddEducation = () => {
+        setEducation([...education, { university: '', place: '', degree: '', startYear: '', endYear: '' }]);
     };
 
     // Function to add new certification input
@@ -105,6 +157,7 @@ const Craft = () => {
         setCertifications(newCertifications);
     };
 
+    
     // Function to handle image change
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -133,24 +186,74 @@ const Craft = () => {
     };
 
     // Function to download resume as PDF
+    // const downloadResume = () => {
+    //     const resumeElement = document.querySelector('.resume-template');
+    //     html2canvas(resumeElement).then((canvas) => {
+    //         const imgData = canvas.toDataURL('image/png');
+
+    //         const pdf = new jsPDF('p', 'mm', 'a4');
+    //         const width = pdf.internal.pageSize.getWidth();
+    //         const height = canvas.height * (width / canvas.width);
+
+
+    //         pdf.addImage(imgData, 'PNG', 0, 0, width, height);
+
+    //         // Download the PDF
+    //         pdf.save('resume.pdf');
+    //         });
+    //         toast.success("Resume Successfully  Downloaded")
+            
+    // };
+
     const downloadResume = () => {
         const resumeElement = document.querySelector('.resume-template');
-        html2canvas(resumeElement).then((canvas) => {
-            const imgData = canvas.toDataURL('image/png');
-
-            const pdf = new jsPDF('p', 'mm', 'a4');
-            const width = pdf.internal.pageSize.getWidth();
-            const height = canvas.height * (width / canvas.width);
-
-
-            pdf.addImage(imgData, 'PNG', 0, 0, width, height);
-
-            // Download the PDF
-            pdf.save('resume.pdf');
+        
+        // Wait for images to load
+        const images = document.querySelectorAll('img');
+        const imagePromises = Array.from(images).map(img => {
+            return new Promise((resolve) => {
+                if (img.complete) {
+                    resolve();
+                } else {
+                    img.onload = resolve;
+                }
             });
-            toast.success("Resume Successfully  Downloaded")
-            
+        });
+    
+        // Wait for all images to load before continuing
+        Promise.all(imagePromises).then(() => {
+            html2canvas(resumeElement, { 
+                scrollX: 0, 
+                scrollY: -window.scrollY, 
+                useCORS: true, 
+                allowTaint: true,
+                logging: true,
+                scale: 2 
+            }).then((canvas) => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                const width = pdf.internal.pageSize.getWidth();
+                const height = canvas.height * (width / canvas.width);
+    
+                // Add the first page
+                pdf.addImage(imgData, 'PNG', 0, 0, width, height);
+    
+                // If content exceeds the A4 page, add more pages
+                if (height > 297) { // A4 height is 297mm
+                    const pageCount = Math.ceil(height / 297);
+                    for (let i = 1; i < pageCount; i++) {
+                        pdf.addPage();
+                        pdf.addImage(imgData, 'PNG', 0, -297 * i, width, height);
+                    }
+                }
+    
+                // Save the PDF
+                pdf.save('resume.pdf');
+                toast.success("Resume Successfully Downloaded");
+            });
+        });
     };
+    
         
 
     
@@ -218,33 +321,134 @@ const Craft = () => {
                         <details>
                             <summary>Skills</summary>
                             <div className='resume-input'>
-                                <input type='text' placeholder='Enter Your Skills' value={skills} onChange={(e) => setSkills(e.target.value)} />
+                                {skills.map((skill, index) => (
+                                    <div key={index} style={{ marginBottom: "10px" }}>
+                                        <div style={{ display: "flex", alignItems: "center" }}>
+                                            <input
+                                                type="text"
+                                                placeholder="Enter Skill Header"
+                                                value={skill.header}
+                                                onChange={(e) => handleSkillHeaderChange(index, e.target.value)}
+                                                style={{ marginRight: "10px", fontWeight: "bold" }}
+                                            />
+                                            <button onClick={() => handleRemoveSkillHeader(index)}>Remove</button>
+                                        </div>
+                                        {skill.subSkills.map((subSkill, subIndex) => (
+                                            <div key={subIndex} style={{ display: "flex", alignItems: "center", marginBottom: "5px" }}>
+                                                <input
+                                                    type="text"
+                                                    placeholder="Enter Sub-Skill"
+                                                    value={subSkill}
+                                                    onChange={(e) =>
+                                                        handleSubSkillChange(index, subIndex, e.target.value)
+                                                    }
+                                                    style={{ marginRight: "10px" }}
+                                                />
+                                                <button onClick={() => handleRemoveSubSkill(index, subIndex)}>Remove</button>
+                                            </div>
+                                        ))}
+                                        <button onClick={() => handleAddSubSkill(index)}>Add Sub-Skill</button>
+                                    </div>
+                                ))}
+                                <button onClick={handleAddSkillHeader}>Add Skill Header</button>
                             </div>
                         </details>
                         <details>
-                            <summary>Experience</summary>
-                            <div className='resume-input' ref={expRef}>
-                                {experiences.map((exp, index) => (
+                        <summary>Experience</summary>
+                        <div className='resume-input' ref={expRef}>
+                            {experiences.map((exp, index) => (
+                                <div key={index} className="experience-entry">
+                                    {/* Company Name */}
                                     <input
-                                        key={index}
-                                        type='text'
-                                        placeholder='Enter Your Work Experience'
-                                        value={exp}
-                                        onChange={(e) => handleExperienceChange(index, e.target.value)}
+                                        type="text"
+                                        placeholder="Company"
+                                        value={exp.company}
+                                        onChange={(e) => handleExperienceChange(index, 'company', e.target.value)}
                                     />
-                                ))}
-                                <button onClick={handleAddExp}>Add</button>
+                                    
+                                    {/* Role */}
+                                    <input
+                                        type="text"
+                                        placeholder="Role"
+                                        value={exp.role}
+                                        onChange={(e) => handleExperienceChange(index, 'role', e.target.value)}
+                                    />
+                                    
+                                    {/* Place */}
+                                    <input
+                                        type="text"
+                                        placeholder="Place"
+                                        value={exp.place}
+                                        onChange={(e) => handleExperienceChange(index, 'place', e.target.value)}
+                                    />
+                                    
+                                    {/* Duration */}
+                                    <input
+                                        type="text"
+                                        placeholder="Duration"
+                                        value={exp.duration}
+                                        onChange={(e) => handleExperienceChange(index, 'duration', e.target.value)}
+                                    />
+                                    
+                                    {/* Point-wise Info */}
+                                    <div className="points-section">
+                                        <h4>Point-wise Info</h4>
+                                        {exp.points.map((point, pointIndex) => (
+                                            <textarea
+                                                key={pointIndex}
+                                                placeholder={`Point ${pointIndex + 1}`}
+                                                value={point}
+                                                onChange={(e) => handlePointChange(index, pointIndex, e.target.value)}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                            <button onClick={handleAddExp}>Add</button>
+                        </div>
+                    </details>
+
+                    <details>
+                    <summary>Education</summary>
+                    <div className="resume-input" ref={eduRef}>
+                        {education.map((edu, index) => (
+                            <div key={index} className="education-entry">
+                                <input
+                                    type="text"
+                                    placeholder="University Name"
+                                    value={edu.university}
+                                    onChange={(e) => handleEducationChange(index, 'university', e.target.value)}
+                                />
+                                <input
+                                    type="text"
+                                    placeholder="Place"
+                                    value={edu.place}
+                                    onChange={(e) => handleEducationChange(index, 'place', e.target.value)}
+                                />
+                                <input
+                                    type="text"
+                                    placeholder="Degree"
+                                    value={edu.degree}
+                                    onChange={(e) => handleEducationChange(index, 'degree', e.target.value)}
+                                />
+                                <input
+                                    type="text"
+                                    placeholder="Start Year"
+                                    value={edu.startYear}
+                                    onChange={(e) => handleEducationChange(index, 'startYear', e.target.value)}
+                                />
+                                <input
+                                    type="text"
+                                    placeholder="End Year"
+                                    value={edu.endYear}
+                                    onChange={(e) => handleEducationChange(index, 'endYear', e.target.value)}
+                                />
                             </div>
-                        </details>
-                        <details>
-                            <summary>Education</summary>
-                            <div className='resume-input' ref={eduRef}>
-                                {education.map((edu, index) => (
-                                    <input key={index} type='text' placeholder='Enter Your Education' value={edu} onChange={(e) => handleEducationChange(index, e.target.value)} />
-                                ))}
-                                <button onClick={handleAddEducation}>Add</button>
-                            </div>
-                        </details>
+                        ))}
+                        <button onClick={handleAddEducation}>Add Education</button>
+                    </div>
+                </details>
+
                         <details>
                             <summary>Courses And Certification</summary>
                             <div className='resume-input' ref={cetRef}>
@@ -254,6 +458,9 @@ const Craft = () => {
                                 <button onClick={handleAddCertification}>Add</button>
                             </div>
                         </details>
+
+                        
+
                     </div>
                     <div className='resume-live'>
                         <h1>Live Preview</h1>
@@ -274,37 +481,110 @@ const Craft = () => {
                             </div>
                             <div className='resume-summary'>
                                 <h3 style={{ color: selectedColor, fontFamily: selectedFontFamily, fontSize: selectedFontSize,}}>Summary</h3>
+                                <hr className="divider" />
                                 <p style={{ fontSize: selectedFontSize }}>{summary}</p>
                             </div>
+
                             <div className='resume-skills'>
-                                <h3 style={{ color: selectedColor, fontFamily: selectedFontFamily, fontSize: selectedFontSize }}>Skills</h3>
-                                <p style={{ fontSize: selectedFontSize }}>{skills}</p>
-                            </div>
-                            <div className='resume-exp'>
-                                <h3 style={{ color: selectedColor, fontFamily: selectedFontFamily, fontSize: selectedFontSize }}>Experience</h3>
-                                {experiences.map((exp, index) => (
-                                    <p key={index} style={{ fontSize: selectedFontSize }}>{exp}</p>
-                                ))}
-                            </div>
-                            <div className='resume-edu'>
-                                <h3 style={{ color: selectedColor, fontFamily: selectedFontFamily, fontSize: selectedFontSize }}>Education</h3>
-                                {education.map((edu, index) => (
-                                    <p key={index} style={{ fontSize: selectedFontSize }}>{edu}</p>
-                                ))}
-                            </div>
+                            <h3 style={{ color: selectedColor, fontFamily: selectedFontFamily, fontSize: selectedFontSize }}>
+                                Skills
+                            </h3>
+                            <hr className="divider" />
+                            {skills.map((skill, index) => (
+                                <div key={index} style={{ marginBottom: "10px" }}>
+                                    <p style={{ fontWeight: "bold", fontSize: selectedFontSize, marginBottom: "5px" }}>
+                                        {skill.header}
+                                    </p>
+                                    <ul className="sub-skills" style={{ fontSize: selectedFontSize }}>
+                                        {skill.subSkills.map((subSkill, subIndex) => (
+                                            <li key={subIndex}>{subSkill}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))}
+                        </div>
+
+
+
+
+
+                                                <div className='resume-exp'>
+                            <h3 style={{ color: selectedColor, fontFamily: selectedFontFamily, fontSize: selectedFontSize }}>
+                                Experience
+                            </h3>
+                            <hr className="divider" />
+                            {experiences.map((exp, index) => (
+                                <div key={index} style={{ fontSize: selectedFontSize }}>
+                                    {/* Company and Place on same line */}
+                                    <div className="company-place">
+                                        <p>{exp.company}</p>
+                                        <p>{exp.place}</p>
+                                    </div>
+
+                                    {/* Role and Duration on same line */}
+                                    <div className="role-duration">
+                                        <p><strong>{exp.role}</strong> </p>
+                                        <p> {exp.duration}</p>
+                                    </div>
+
+                                    {/* Point-wise Info with bullets */}
+                                    <div className="point-wise">
+                                        {exp.points.map((point, pointIndex) => (
+                                            <p key={pointIndex}>• {point}</p>
+                                        ))}
+                                    </div>
+
+                                    <hr />
+                                </div>
+                            ))}
+                        </div>
+
+                    
+
+                        <div className='resume-edu'>
+    <h3 style={{ color: selectedColor, fontFamily: selectedFontFamily, fontSize: selectedFontSize }}>
+        Education
+    </h3>
+    <hr className="divider" />
+    {education.map((edu, index) => (
+        <div key={index} style={{ fontSize: selectedFontSize }}>
+            {/* University and Place on same line */}
+            <div className="university-place">
+                <p><strong>{edu.university}</strong> </p>
+                <p>{edu.place} </p>
+            </div>
+
+            {/* Degree and Years on same line */}
+            <div className="degree-years">
+                <p>{edu.degree} </p>
+                <p>{edu.startYear} - {edu.endYear} </p>
+            </div>
+
+            <hr />
+        </div>
+    ))}
+</div>
+
+
                             <div className='resume-cert'>
                                 <h3 style={{ color: selectedColor, fontFamily: selectedFontFamily, fontSize: selectedFontSize }}>Courses And Certification</h3>
+                                <hr className="divider" />
                                 {certifications.map((cert, index) => (
                                     <p key={index} style={{ fontSize: selectedFontSize }}>{cert}</p>
                                 ))}
                             </div>
+
+                           
                         </div>
                         <button onClick={downloadResume} id='download-btn'>Download Resume as PDF</button>
                     </div>
+                    </div>
                 </div>
-            </div>
+            
         </Layout>
     );
 };
 
 export default Craft;
+
+
