@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
 
-.craft {
+/* .craft {
     background-image: url('1685588057_en-idei-club-p-blue-green-background-design-dizain-53.jpg');
     background-size: cover;
     background-repeat: repeat-y;
@@ -17,6 +17,23 @@
    align-items: center; 
    flex: 1;
 
+} */
+
+.craft {
+    background-image: url('1685588057_en-idei-club-p-blue-green-background-design-dizain-53.jpg');
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    min-height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    position: relative;
+    padding-top: 50px;
+    border: 5px solid black; /* Add a solid black border */
+    border-radius: 10px; /* Optional: rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: shadow for depth */
 }
 
 .templates {
@@ -97,17 +114,17 @@
 }
 
 
-
+/* Style for the live preview header */
 .resume-live h1 {
     font-family: "Patrick Hand SC", cursive;
     font-weight: 900;
     font-style: normal;
-    color:yellow;
+    color: yellow;
     font-size: 50px;
     margin-top: 20px;
-
 }
 
+/* Style for the resume template container */
 .resume-template {
     border: 1px solid black;
     width: 500px;
@@ -116,57 +133,79 @@
     height: auto;
     margin-bottom: 50px;
     background: white;
+    overflow-y: auto; /* Add scrollability for larger content */
 }
-.resume-template::-webkit-scrollbar{
+
+/* Remove scrollbar */
+.resume-template::-webkit-scrollbar {
     display: none;
 }
 
+/* Personal details section styling */
+.professional .resume-personal {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Styling for name in the personal section */
 .professional .resume-personal #name {
     margin: 0;
     padding: 0;
-    font-size: 20px;
+    font-size: 20px; /* Increased font size for the name */
     text-transform: uppercase;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 800;
+    font-weight: 800; /* Bold font weight */
+    text-align: center; /* Center the name */
 }
 
+/* Styling for role in the personal section */
 .professional .resume-personal #role {
     margin: 0;
     padding: 0;
-    font-size: 10px;
+    font-size: 15px; /* Slightly smaller font size for the role */
     text-transform: capitalize;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 200;
+    text-align: center; /* Center the role */
+    margin-top: 3px; /* Space between name and role */
 }
 
-.professional .resume-personal #number {
-    margin: 0;
-    padding: 0;
-    font-size: 7px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 200;
-}
-
+/* Contact details in the personal section */
 .professional .resume-personal ul {
     padding: 0;
-    font-size: 7px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 10px; /* Increased font size for better readability */
     font-weight: 200;
     display: flex;
     flex-direction: row;
     justify-content: center;
     list-style: none;
+    margin-top: 4px; /* Space between role and contact details */
 }
 
-.professional .resume-personal ul p {
-    margin-left: 3px;
+/* Add margin between list items */
+.professional .resume-personal ul li {
+    margin-left: 5px; /* More space between contact details */
+    margin-right: 5px; /* More space between contact details */
 }
 
+/* Styling for profile image */
+.professional .resume-personal .resume-image img {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 50%; /* Circular image */
+    margin-bottom: 20px; /* Space between image and name */
+}
+
+.divider {
+    border: 0; /* Removes the default border */
+    border-top: 2px solid #000; /* Adds a solid black line */
+    margin: 0; /* Adds space above and below the line */
+}
+
+/* Styling for summary section */
 .professional .resume-summary h6 {
-    display: block !important;
     margin: 0;
-    padding: 0px;
-    font-size: 12px;
+    padding: 0;
+    font-size: 16px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 200;
     border-bottom: 1px solid black;
@@ -176,80 +215,159 @@
     margin-top: 3px;
     padding: 5px;
     font-size: 9px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 200;
     max-width: fit-content;
     white-space: pre-wrap;
     word-wrap: break-word;
 }
 
+/* Styling for skills section */
+/* Styling for the skills section */
 .professional .resume-skills h6 {
-    display: block !important;
     margin: 0;
-    padding: 0px;
-    font-size: 12px;
+    padding: 0;
+    font-size: 16px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 200;
     border-bottom: 1px solid black;
 }
 
+/* Styling for each skill and sub-skills */
 .professional .resume-skills p {
-    margin-top: 3px;
+    margin-top: 0px;
     padding: 5px;
     font-size: 9px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 200;
     max-width: fit-content;
     white-space: pre-wrap;
     word-wrap: break-word;
 }
 
+/* Styling for sub-skills (displaying them in the same line) */
+.professional .resume-skills .sub-skills {
+    display: flex; /* Arrange sub-skills horizontally */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    gap: 10px; /* Space between sub-skills */
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 0;
+    list-style: none; /* Remove default bullet */
+    padding: 0; /* Remove padding */
+}
+
+/* Styling for each sub-skill with a bullet point */
+.professional .resume-skills .sub-skills li {
+    display: inline-flex; /* Keep each sub-skill inline */
+    align-items: center; /* Align items vertically */
+    margin-right: 5px; /* Space between items */
+}
+
+.professional .resume-skills .sub-skills li::before {
+    content: "•"; /* Custom bullet point */
+    font-size: 20px; /* Size of the bullet */
+    margin-right: 8px; /* Space between the bullet and the text */
+}
+
+
+
+/* Styling for experience section */
 .professional .resume-exp h6 {
-    display: block !important;
     margin: 0;
-    padding: 0px;
+    padding: 0;
     font-size: 12px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 200;
     border-bottom: 1px solid black;
 }
 
-.professional .resume-exp p {
-    padding: 5px;
-    font-size: 9px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 200;
-    max-width: fit-content;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    margin-bottom: 0;
+/* Styling for each experience section */
+.professional .resume-exp div {
+    font-size: 14px; /* Set font size for all experience details */
+    margin-bottom: 15px; /* Space between experience sections */
 }
 
-.professional .resume-edu h6 {
-    display: block !important;
+/* Styling for company and place - align left and right */
+.professional .resume-exp .company-place {
+    display: flex;
+    justify-content: space-between; /* Spread company and place to opposite ends */
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 0px;
+}
+
+/* Styling for role and duration */
+.professional .resume-exp .role-duration {
+    display: flex;
+    justify-content: space-between; /* Spread role and duration to opposite ends */
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+/* Styling for point-wise information with bullet points */
+.professional .resume-exp .point-wise {
+    padding-left: 20px; /* Indent for bullet points */
+}
+
+.professional .resume-exp .point-wise p {
+    font-size: 10px;
+    margin-bottom: 5px; /* Space between points */
+}
+
+/* Divider line between experiences */
+.professional .resume-exp hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 15px 0;
+}
+
+
+/* Styling for education section */
+.professional .resume-edu h3 {
     margin: 0;
-    padding: 0px;
-    font-size: 12px;
+    padding: 0;
+    font-size: 14px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 200;
     border-bottom: 1px solid black;
 }
 
-.professional .resume-edu p {
-    padding: 5px;
-    font-size: 9px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 200;
-    max-width: fit-content;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    margin-bottom: 0;
+/* Styling for each education section */
+.professional .resume-edu div {
+    font-size: 14px; /* Set font size for all education details */
+    margin-bottom: 15px; /* Space between education sections */
 }
 
+/* Styling for university and place - align left and right */
+.professional .resume-edu .university-place {
+    display: flex;
+    justify-content: space-between; /* Spread university and place to opposite ends */
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+/* Styling for degree and years */
+.professional .resume-edu .degree-years {
+    display: flex;
+    justify-content: space-between; /* Spread degree and years to opposite ends */
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+/* Divider line between education sections */
+.professional .resume-edu hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 15px 0;
+}
+
+
+/* Styling for certifications section */
 .professional .resume-cert h6 {
-    display: block !important;
     margin: 0;
-    padding: 0px;
+    padding: 0;
     font-size: 12px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 200;
@@ -259,12 +377,27 @@
 .professional .resume-cert p {
     padding: 5px;
     font-size: 9px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 200;
     max-width: fit-content;
     white-space: pre-wrap;
     word-wrap: break-word;
     margin-bottom: 0;
+}
+
+/* Style for download button */
+#download-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#download-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
 }
 
 
